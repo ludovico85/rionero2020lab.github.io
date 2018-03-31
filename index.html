@@ -1,0 +1,1682 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+		<link rel="stylesheet" href="css/leaflet-sidebar.css">
+		<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/custom.css"/>
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>
+		Indicatori socio-economici
+		</title>
+    </head>
+    <body>
+	<div id="logo">
+	<img src="images/logo.jpg" width="75" height="75">
+	</div>
+	
+	<div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" title = "Info" role="tab"><i class="fa fa-info"></i></a></li>
+				<li><a href="#mylegend" title = "Mostra i tematismi" role="tab"><i class="fa fa-map"></i></a></li>
+				<li><a href="#descr" title = "Mostra la descrizione dei tematismi" role="tab"><i class="fa fa-file"></i></a></li>
+				<li><a href="#search" title = "Cerca il comune" role="tab"><i class="fa fa-search"></i></a></li>
+				<li><a href="#settings" title = "Utilizzo" role="tab"><i class="fa fa-cog"></i></a></li>
+				<li><a href="#messages" title = "Invia e-mail" role="tab"><i class="fa fa-envelope"></i></a></li>
+
+            </ul>
+			<ul role="tablist">
+                <li><a href="#contacts" title = "Contatti" role="tab"><i class="fa fa-user"></i></a></li>
+            </ul>
+        </div>
+    
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">
+                    WebGIS <span style="color: #7BC5B8">RIONERO</span><span style="color: #948077">2</span><span style="color: #FFD960">0</span><span style="color: #948077">2</span><span style="color: #FFD960">0</span>
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p><span style="font-size:24px;color: #7BC5B8">RIONERO</span>
+				<span style="font-size:24px;color: #948077">2</span><span style="font-size:24px;color: #FFD960">0</span><span style="font-size:24px;color: #948077">2</span><span style="font-size:24px;color: #FFD960">0</span></p>
+				<hr style = "border-top: 1px solid #7BC5B8;";>
+				<p style="font-size:18px;color: #948077;margin-right:10px">LABORATORIO PARTECIPATO PER LO SVILUPPO LOCALE</p>
+				<hr style = "border-top: 1px solid #7BC5B8;";>
+                <p style="margin-right:10px;">
+				Rionero2020 è uno strumento pensato per fornire all’amministrazione comunale un quadro programmatico di riferimento per l’attuazione degli investimenti previsti nell’ambito della	programmazione 2014-2020, puntando al riconoscimento e alla gestione delle risorse territoriali	attraverso il coinvolgimento attivo della comunità, intercettando iniziative e proposte di attori che possano generare vantaggi collettivi. Diverse sono state le riflessioni e le considerazioni che hanno portato all'elaborazione di questo strumento, frutto di dinamiche e problematiche radicate nel tempo - verso cui si è sentita le necessità di provare a dare risposta - , prima fra tutte lo scarso coinvolgimento della società civile nei processi di progettazione per lo sviluppo territoriale e l’incoerenza tra gli investimenti pubblici attuati e le vocazioni e potenzialità del territorio in cui si opera.
+				<br>
+				Per ovviare a queste criticità, - anche in considerazione delle raccomandazioni contenute nel documento “Metodi e obiettivi per un uso efficace dei fondi comunitari <span class = "tooltip1">2014-2020<span class="tooltip1text"> Presentato nell’anno 2012 dal Ministro per la Coesione Territoriale Fabrizio Barca, d’intesa con i Ministri del Lavoro e delle Politiche Sociali e delle Politiche Agricole, Alimentari e Forestali. </span></span>" - nell’elaborazione dello strumento programmatico Rionero 2020, l’aspetto tecnico viene affiancato da un approccio partecipativo in cui la comunità si renda protagonista nella costruzione di visioni per il futuro, anziché svolgere un ruolo passivo e di semplice destinataria di scelte e interventi che non generano valore aggiunto sul territorio e che rendono di fatto sterili gli investimenti per lo sviluppo.
+				Rionero 2020 quindi mira alla realizzazione di uno strumento di raccordo tra la programmazione nazionale-regionale e l'operatività politica e sociale locale, ed intende stimolare il confronto e l'interazione tra abitanti e amministrazione, su tematiche che non possono più essere trattate
+				separatamente; si pone, quindi, al centro della dimensione strategica - di carattere flessibile che individua l’orientamento di sviluppo territoriale generale attraverso il riconoscimento degli elementi condizionanti di natura storica, culturale, ambientale, insediativa, e sociale e permette di definire
+				un’immagine di futuro condivisa per il territorio – e quella tattica, per rispondere a bisogni urgenti e collettivi attraverso scelte operative di trasformazione territoriale più immediate, inquadrate nella prospettiva generale specificata.
+				<br>
+				Per il raggiungimento di questi obiettivi il lavoro è stato concettualmente organizzato in tre fasi, costruite integrando alle valutazioni di natura tecnica i risultati e le considerazioni emerse nel corso degli incontri svolti con la comunità rionerese.
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo12">FASE 1: la dimensione strategica</button>
+				<div id="demo12" class="collapse">
+				<p style="margin-right:10px;">L’obiettivo della prima fase del lavoro è stato quello di individuare un orientamento generale di sviluppo e definire una prospettiva condivisa di futuro a partire dalla conoscenza delle dinamiche e degli elementi di diversa natura che incidono significativamente nel contesto territoriale. 
+				Il primo argomento di analisi ha riguardato lo studio del contesto programmatico di riferimento al fine ma anche per immaginare azioni di sviluppo in grado di contribuire al raggiungimento delle finalità individuate dalle politiche sovralocali. Nello specifico si sono osservati gli strumenti programmatici di scala sub provinciale in cui è inserito il comune di <span class = "tooltip1">Rionero<span class="tooltip1text">Il contesto programmatico individuato è stato utilizzato anche come riferimento di area vasta nello svolgimento delle analisi territoriali illustrate di seguito. </span></span>, utilizzati anche come riferimento territoriale di area vasta nella definizione delle analisi e delle progettualità illustrate di <span class = "tooltip1">seguito<span class="tooltip1text">Al contesto territoriale individuato dagli strumenti programmatici è stato aggiunto il territorio del comune di Castel di Sangro, che pur non rientrando negli strumenti indicati, confina direttamente con il territorio di Rionero.</span></span>. Si tratta della Strategia di Sviluppo Locale “Territori della biodiversita’ e dei sapori” elaborata dal <span class = "tooltip1">GAL Alto Molise<span class="tooltip1text">Comprende i comuni di: Agnone, Belmonte del Sannio, Capracotta, Carovilli, Castel del Giudice, Castelverrino, Chiauci, Civitanova del Sannio, Forlì del Sannio, Pescolanciano, Pescopennataro, Pietrabbondante, Poggio Sannita, Rionero Sannitico, Roccasicura, San Pietro Avellana, Sant’Angelo del Pesco, Vastogirardi.</span></span> e della Strategia Aree Interne “Mainarde”, elaborata da un partenariato di 9 <span class = "tooltip1">comuni<span class="tooltip1text">Acquaviva d’Isernia, Castel San Vincenzo, Cerro al Volturno, Colli al Volturno, Filignano, Forlì del Sannio, Fornelli, Montaquila, Montenero Val Cocchiara, Pizzone, Rionero Sannitico, Rocchetta al Volturno, Scapoli. </span></span> in cui, quello di Castel San Vincenzo svolge il ruolo di capofila. Tuttavia, pur non approfondendo in questa fase le possibilità degli strumenti di programmazione regionale come il PSR 2014-2020 e il POR FESR-FSE (già ampiamente esposti in più sedi), le rispettive opportunità di finanziamento sono state comunque indicate successivamente nella descrizione degli interventi previsti dal <i>Masterplan programmatico</i> Rionero 2020, ad integrazione delle misure previste negli strumenti del Gal Alto Molise e della Strategia Aree Interne “Mainarde”. Successivamente il lavoro è proseguito con la determinazione delle condizioni socio-economiche dell’area. Grazie alla lettura di una serie di dati statistici e di diversi indicatori messi a disposizione dall’ISTAT (tramite la piattaforma web <i>Ottomilacensus</i>), sono state elaborate delle carte tematiche in cui vengono illustrati, per ciascun comune, i dati relativi alla popolazione e alle dinamiche demografiche intercorse tra il 2001 e il 2017, alle condizioni di potenziale vulnerabilità sociale ed economica, al rapporto tra giovani ed istruzione e al mondo del lavoro. L’ultima parte di questa fase invece, si sofferma sull’elaborazione e descrizione della carta tematica di “Interpretazione di sintesi”, utile a mettere in evidenza i caratteri più rilevanti del contesto territoriale in cui è inserito il comune di Rionero Sannitico. Tali caratteri, in particolare, sono suddivisi secondo criteri di strutturazione, caratterizzazione, tipizzazione e criticità del territorio. I risultati ottenuti da queste analisi, sono stati integrati dai contenuti emersi nel corso dell’incontro pubblico “Illustrazione di buone pratiche e progetti di sviluppo locale” in cui, grazie allo studio di casi virtuosi di sviluppo locale in contesti simili, sono stati definiti obiettivi generali e ambiti di applicazione del progetto di sviluppo territoriale.</p>  
+				</div>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo13">FASE 2: la dimensione tattica</button>
+				<div id="demo13" class="collapse">
+				Nella seconda fase del lavoro l’attenzione è passata al livello comunale con l’obiettivo di “ridefinire” l’insieme delle risorse endogene e delle specificità che costituiscono il Capitale Territoriale di Rionero e che possono essere mobilitate per creare valore sul territorio. Questa fase dunque è risultata fondamentale per individuare gli elementi su cui costruire la prospettiva di intervento e per mettere in evidenza specifici elementi abbandonati, che possono essere rivitalizzati per rafforzare l’identità locale, trasformando in opportunità le debolezze e le criticità di cui soffre il territorio. La definizione del Capitale territoriale è stata realizzata mediante lo studio e l’interpretazione della bibliografia e dei dati cartografici disponibili e arricchita dal contributo dei cittadini attraverso l’utilizzo dello strumento partecipativo-collaborativo della webmap Rionero 2020, che ha permesso ai cittadini la segnalazione di luoghi e risorse che a vario titolo costituiscono motivo di interesse. Questo processo di “riconoscimento” ha condotto alla realizzazione dell’elaborato grafico “Capitale territoriale” e di alcuni focus di approfondimento utili a descrivere in modo più dettagliato gli aspetti rilevati.
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo14">FASE 3: laboratorio progettuale</button>
+				<div id="demo14" class="collapse">
+				Sulla base delle conoscenze sviluppate nelle precedenti fasi, l’ultimo step del lavoro ha condotto alla determinazione di un set di azioni materiali e immateriali che nel complesso contribuiscono alla composizione del progetto di sviluppo territoriale illustrato nell’elaborato <i>Masterplan programmatico Rionero 2020</i>. Il laboratorio è stato organizzato in 3 momenti di confronto pubblico che, dall’individuazione di una prospettiva più generale, hanno portato alla messa a fuoco di una serie di progettualità inquadrate in una logica complessiva ed unitaria. Successivamente gli interventi individuati sono state messi in relazione con le misure di finanziabilità previste dalle strategie di sviluppo locale esposte nella prima parte del lavoro e con gli strumenti di programmazione regionale 2014-2020. Infine, tutti i dati cartografici raccolti ed elaborati nel corso del lavoro hanno costituito la base per la creazione di un <i>geodatabase open source</i> per permettere a tecnici comunali, residenti e professionisti la consultazione, l’interrogazione e l’analisi dei dati territoriali.
+				</div>
+				</p>
+				<br>
+				<a href="https://www.facebook.com/rionero2020/?ref=br_rs" target="_blank"> <img border="0" alt="segui su facebook" src="images/facebook.png" width="50" height="50"> </a>
+            </div>
+			<div class="sidebar-pane" id="mylegend">
+                <h1 class="sidebar-header">Tematismi<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+			<div class="sidebar-pane" id="search">
+                <h1 class="sidebar-header">Cerca il comune...<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<p id="geotext"></p>
+				<p id="sidebar-text"></p>
+            </div>
+			<div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">Come utilizzare il WebGIS<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<p id="geotext"></p>
+				<img src = "images/uso.gif" width = "350" height = "250">
+            </div>
+			<div class="sidebar-pane" id="contacts">
+                <h1 class="sidebar-header">Contatti<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<p id="geotext"></p>
+				<p id="sidebar-text; margin-right: 10px"> Il WebGIS è stato realizzato nell'ambito del progetto RIONERO2020 - Laboratorio partecipato per lo sviluppo locale.
+				Il progetto, finanziato dal Comune di Rionero Sannitico, è stato promosso e coordindato da Antonio Petrocelli che si avvalso del supporto tecnico di Ludovico Frate e Alfonso Ianiro.
+				
+				<br>
+				<br>
+				Il WebGIS è stato ideato da <a style="color:#FEDA60; text-decoration:none" href="http://www.lezionigis.it" target="_blank"> <b>Ludovico Frate</b></a> con la collaborazione di Antonio Petrocelli.
+				</p>
+            </div>
+			<div class="sidebar-pane" id="messages">
+                <h1 class="sidebar-header"><font face="sans-serif">Invia e-mail a: rionero2020@gmail.com</font><span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<form action="mailto:rionero2020@gmail.com" method="post" enctype="text/plain">
+				<font face= "sans-serif">Nome:<br>
+				<input type="text" name="name" style = "color:black"><br>
+				E-mail:<br>
+				<input type="text" name="mail" style = "color:black"><br>
+				Commento:<br>
+				<input type="text" name="comment" size="250" style = "color:black"><br><br>
+				<input type="submit" value="Invia" style = "color:black; background: #FEDA60; border: #FEDA60">
+				<input type="reset" value="Resetta" style = "color:black; background: #FEDA60; border: #FEDA60">
+				</font>
+				</form>
+			</div>
+			<div class="sidebar-pane" id="descr">
+                <h1 class="sidebar-header">Descrizione dei tematismi<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<p id="geotext">Clicca sul pulsante per scoprire il signficato delle mappe</p>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Popolazione e dinamiche demografiche</button>
+				<div id="demo" class="collapse">
+				La mappa contiene informazioni sull'andamento demografico dei vari comuni. I trend demografici sono calcolati come differenza della popolazione nella
+					data più vecchia e nell data più recente (sia in termini assoluti che in termini percentuali). I colori della mappa di riferiscono al Trend demografico
+					in percentuale. L'etichetta sui comuni riporta l'anno di "scomparsa" demografica ossia l'anno in cui non ci saranno più abitanti. Tale calcolo, ottenuto tramite una semplice regressione lineare, è una semplificazione in quanto non tiene conto di altri fattori che possono influenzare il tasso demografico (variabili economiche, ambientali).
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Popolazioneedinamichedemografiche" checked>
+					<br>
+					<b>Popolazione e dinamiche demografiche</b><br/><table><tr><td style="text-align: center;"><img src="legend/Popolazioneedinamichedemografiche_11_70400.png" /></td><td> </td><td> -70 - 40</td></tr><tr><td style="text-align: right;"><img src="legend/Popolazioneedinamichedemografiche_11_40201.png" /></td><td> </td><td> -40 - 20</td></tr><tr><td style="text-align: right;"><img src="legend/Popolazioneedinamichedemografiche_11_2002.png" /></td> <td> </td><td> -20 - 0 </td></tr><tr><td style="text-align: right;"><img src="legend/Popolazioneedinamichedemografiche_11_0203.png" /></td> <td> </td><td> 0 - 20  </td></tr><tr><td style="text-align: right;"><img src="legend/Popolazioneedinamichedemografiche_11_20404.png" /></td><td> </td><td> 20 - 40 </td></tr></table>				
+					<!--<label>Mostra mappa</label>-->
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">Tasso di disoccupazione</button>
+				<div id="demo1" class="collapse">
+				Esprime il rapporto percentuale tra la popolazione residente di 15 anni e più in cerca di occupazione e la popolazione residente di 15 anni e più attiva. L’indicatore rappresenta la quota percentuale di forza lavoro che è alla ricerca di una nuova occupazione perché ha perso il lavoro oppure è alla ricerca di una prima occupazione. Il rapporto permette di misurare l’eccesso di offerta di lavoro rispetto alla domanda espressa dal sistema economico. È uno dei principali indicatori sul ciclo economico del territorio indagato.
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Tassodidisoccupazione" checked>
+					<br>
+					<b>Tasso di disoccupazione (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_050.png" /></td><td>0 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_5101.png" /></td><td>5 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_10152.png" /></td><td>10 - 15</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_15203.png" /></td><td>15 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_20254.png" /></td><td>20 - 25</td></tr></table>					
+					<!--<label>Mostra mappa</label>-->
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">Tasso di disoccupazione giovanile</button>
+				<div id="demo2" class="collapse">
+				Esprime il rapporto percentuale tra la popolazione residente di 15-24 anni in cerca di occupazione e la popolazione residente di 15-24 anni attiva.
+				L’indicatore rappresenta la quota percentuale di forza lavoro giovanile che è alla ricerca di una nuova occupazione perché ha perso il lavoro oppure è alla ricerca di una prima occupazione. Il rapporto permette di misurare l’eccesso di offerta di lavoro – con riferimento alla classe di età considerata – rispetto alla domanda espressa dal sistema economico.
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Tassodidisoccupazionegiovanile" checked>
+					<br> <b>Tasso di disoccupazione giovanile (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_0100.png" /></td><td>0 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_10201.png" /></td><td>10 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_20302.png" /></td><td>20 - 30</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_30403.png" /></td><td>30 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_40504.png" /></td><td>40 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_50605.png" /></td><td>50 - 60</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_60706.png" /></td><td>60 - 70</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_70807.png" /></td><td>70 - 80</td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3">Indice di vulnerabilità sociale e materiale</button>
+				<div id="demo3" class="collapse">
+				Esprime con un unico valore i diversi aspetti di un fenomeno di natura multidimensionale attraverso la combinazione di sette indicatori elementari che descrivono le principali dimensioni “materiali” e “sociali” della vulnerabilità. In particolare:
+				<li>incidenza percentuale della popolazione di età compresa fra 25 e 64 anni analfabeta e alfabeta senza titolo di studio;
+				<li>incidenza percentuale delle famiglie con 6 e più componenti;
+				<li>incidenza percentuale delle famiglie monogenitoriali giovani (età del genitore inferiore ai 35 anni);
+				<li>incidenza percentuale delle famiglie con potenziale disagio assistenziale (famiglie composte solo da anziani over 65 e con la presenza di almeno un ottantenne)
+				<li>incidenza percentuale della popolazione in condizione di affollamento grave, data dal rapporto percentuale tra la popolazione residente in abitazioni con superficie inferiore a 40 mq e più di 4 occupanti o in 40-59 mq e più di 5 occupanti o in 60-79 mq e più di 6 occupanti, e il totale della popolazione residente in abitazioni occupate;
+				<li>incidenza percentuale di giovani (15-29 anni) fuori dal mercato del lavoro e dalla formazione scolastica;
+				<li>incidenza percentuale delle famiglie con potenziale disagio economico, (quota di famiglie giovani o adulte con figli nei quali nessuno è occupato o è ritirato da lavoro)
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Indicedivulnerabilitsocialeemateriale" checked>
+					<br> <b>Indice di vulnerabilità sociale e materiale (1-10)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_020.png" /></td><td>0 - 2</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_241.png" /></td><td>2 - 4</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_462.png" /></td><td>4 - 6</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_683.png" /></td><td>6 - 8</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_8104.png" /></td><td>8 - 10</td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo4">Indice di vecchiaia</button>
+				<div id="demo4" class="collapse">
+				Misura il numero di anziani presenti in una popolazione ogni 100 giovani, permettendo di valutare il livello d’invecchiamento degli abitanti di un territorio. La variazione dell’indice nel tempo dipende dalla dinamica sia della popolazione anziana che di quella giovane. Valori superiori a 100 indicano una maggiore presenza di soggetti anziani rispetto ai molto giovani.
+				L’indice di vecchiaia è il rapporto percentuale tra la popolazione di 65 anni e più e la popolazione di età 0-14 anni.
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Indicedivecchiaia" checked>
+					<br> <b>Indice di vecchiaia (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_1002000.png" /></td><td>100 - 200</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_2003001.png" /></td><td>200 - 300</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_3004002.png" /></td><td>300 - 400</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_4005003.png" /></td><td>400 - 500</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_5004.png" /></td><td>>500</td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo5">Partecipazione al mercato del lavoro</button>
+				<div id="demo5" class="collapse">
+				Esprime il rapporto percentuale tra la popolazione residente attiva e la popolazione residente della stessa classe di età. L’indicatore rappresenta il tasso di attività, cioè la quota percentuale di persone che appartengono alle forze di lavoro (popolazione attiva) sul totale della popolazione in età corrispondente (10 anni e oltre fino al 1961; 15 anni e oltre dal 1971). La popolazione attiva esprime una misura dell’offerta di lavoro in atto sul mercato e, in rapporto alla popolazione residente, indica la propensione di quest’ultima a svolgere o voler svolgere un’attività lavorativa in grado di produrre un reddito. Il tasso di attività dipende da fattori sia socio-economici (caratteristiche della struttura produttiva, livello di istruzione, ecc.) che demografici (struttura per età e sesso della popolazione). 
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Partecipazionealmercatodellavoro" checked>
+					<br> <b>Partecipazione al mercato del lavoro (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_30350.png" /></td><td>30 - 35</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_35401.png" /></td><td>35 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_40452.png" /></td><td>40 - 45</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_45503.png" /></td><td>45 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_504.png" /></td><td>>50</td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo6">Incidenza di famiglie in potenziale disagio economico</button>
+				<div id="demo6" class="collapse">
+				Attraverso questo indicatore si individuano situazioni di potenziali difficoltà economiche per la mancanza di almeno un reddito da lavoro o da pensione derivante da attività lavorativa, si esprime rapporto percentuale tra il numero di famiglie con figli con la persona di riferimento in età fino a 64 anni nelle quali nessun componente è occupato o ritirato dal lavoro e il totale delle famiglie
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Incidenzadifamiglieinpotenzialedisagioeconomico" checked>
+					<br> <b>Incidenza di famiglie in potenziale disagio economico (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_00100.png" /></td><td> 0.0 - 1.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_10201.png" /></td><td> 1.0 - 2.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_20302.png" /></td><td> 2.0 - 3.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_30403.png" /></td><td> 3.0 - 4.0 </td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo7">Uscita precoce dal sistema di istruzione e formazione</button>
+				<div id="demo7" class="collapse">
+				Esprime il  rapporto percentuale tra la popolazione residente di 15-24 anni con licenza media che non è iscritto ad un corso regolare di studi e non frequenta un corso di formazione professionale e la popolazione residente di 15-24 anni. L’indicatore viene utilizzato per misurare l’incidenza di giovani usciti dal sistema scolastico senza avere conseguito un diploma e senza accedere alla formazione professionale alla fine dell’obbligo scolastico.
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Uscitaprecocedalsistemadiistruzioneeformazione" checked>
+					<br> <b>Uscita precoce dal sistema di istruzione e formazione (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_050.png" /></td><td>0 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_5101.png" /></td><td>5 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_10152.png" /></td><td>10 - 15</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_15203.png" /></td><td>15 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_20304.png" /></td><td>20 - 30</td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo8">Incidenza di giovani con istruzione universitaria</button>
+				<div id="demo8" class="collapse">
+				Esprime il rapporto percentuale tra la popolazione residente di 30-34 anni in possesso di titolo universitario e la popolazione residente di 30-34 anni. L’indicatore esprime una misura della ricchezza in termini di capitale umano della popolazione più giovane , nel caso particolare di quella che ha già di norma completato il proprio ciclo di studi, fornendo una misura sulle potenzialità di sviluppo in termini socio-economici della popolazione di riferimento. Rientra tra quelli individuati dalla Commissione europea nella strategia Europa 2020 per fissare e monitorare gli obiettivi strategici dei paesi dell’Unione Europea
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Incidenzagiovaniconistruzioneuniversitaria" checked>
+					<br> <b>Incidenza giovani con istruzione universitaria (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_0100.png" /></td><td>0 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_10201.png" /></td><td>10 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_20302.png" /></td><td>20 - 30</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_30403.png" /></td><td>30 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_40504.png" /></td><td>40 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_505.png" /></td><td>>50</td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo9">Incidenza di giovani 15-29 anni che non studiano e non lavorano</button>
+				<div id="demo9" class="collapse">
+				Esprime il rapporto percentuale tra la popolazione residente di 15-29 anni non studente e non occupata e la popolazione residente di 15-29 anni. L’indicatore rappresenta la quota percentuale di giovani tra 15 e 29 anni che non sono iscritti ad un corso di studi, che non frequentano un corso di formazione e che non lavorano. Il valore esprime la quota di giovani, che usciti da un percorso di studi, non riescono a trovare un’occupazione
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Incidenzadigiovani1529annichenonstudianoenonlavorano" checked>
+					<br> <b>Incidenza di giovani 15-29 anni che non studiano e non lavorano (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_0100.png" /></td><td>0 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_10201.png" /></td><td>10 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_20302.png" /></td><td>20 - 30</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_30403.png" /></td><td>30 - 40</td></tr></table>
+					</div>
+				</div>
+				<br>
+				<br>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo10">Incidenza di giovani fuori dal mercato del lavoro e della formazione</button>
+				<div id="demo10" class="collapse">
+				L’indicatore individua la quota di popolazione in età 15-29 anni che risulta non occupata, non in cerca di occupazione e nemmeno inserita in un percorso regolare di istruzione/formazione.
+					<br>
+					<br>
+					<b>Fonte dati ISTAT</b>
+					<br>
+					<br>
+					<div class="overlay">
+					<input type="image" src="images/eye.png" width="24" height="24" title= "Mostra/nascondi mappa" value="Incidenzadigiovanifuoridalmercatodellavoroedellaformazione" checked>
+					<br> <b>Incidenza di giovani fuori dal mercato del lavoro e della formazione (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_050.png" /></td><td> 0 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_5101.png" /></td><td> 5 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_10152.png" /></td><td> 10 - 15 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_15203.png" /></td><td> 15 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_20254.png" /></td><td>20 - 25</td></tr></table>
+					</div>
+				</div>
+            </div>
+		</div>			
+        </div>
+        <div id="map">
+        </div>
+		<script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+		<script src="js/leaflet-sidebar.js"></script> <!--script sidebar-->
+		<!--<script src="js/jquery-sidebar.js"></script> <!-- call to jquery -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> <!-- call to jquery -->
+		<script type="text/javascript" src="js/leaflet.ajax.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		<script src="js/spin.js"></script>
+		<script src="js/leaflet.spin.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/LimitiComunali_0.js"></script>
+        <script src="data/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1.js"></script>
+        <script src="data/Incidenzadigiovani1529annichenonstudianoenonlavorano_2.js"></script>
+        <script src="data/Incidenzagiovaniconistruzioneuniversitaria_3.js"></script>
+        <script src="data/Uscitaprecocedalsistemadiistruzioneeformazione_4.js"></script>
+        <script src="data/Incidenzadifamiglieinpotenzialedisagioeconomico_5.js"></script>
+        <script src="data/Partecipazionealmercatodellavoro_6.js"></script>
+        <script src="data/Indicedivecchiaia_7.js"></script>
+        <script src="data/Indicedivulnerabilitsocialeemateriale_8.js"></script>
+        <script src="data/Tassodidisoccupazionegiovanile_9.js"></script>
+        <script src="data/Tassodidisoccupazione_10.js"></script>
+        <script src="data/Popolazioneedinamichedemografiche_11.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:false, maxZoom:13, minZoom:9}).fitBounds([[41.29,13.37],[42.14,15.158]]);;
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+		map.attributionControl.addAttribution('<a href="https://fontawesome.com/" target="_blank">Font Awesome</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>');
+		map.attributionControl.addAttribution('<a href="https://github.com/Turbo87/leaflet-sidebar" target="_blank">Leaflet-sidebar, MIT License</a>');
+		map.attributionControl.addAttribution('<a href=http://labs.easyblog.it/" target="_blank">Leaflet.Control.Search, MIT License</a>');
+
+		
+		
+		
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash;Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);   
+		
+        function pop_LimitiComunali_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provinica</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LimitiComunali_0_0() {
+            return {
+                pane: 'pane_LimitiComunali_0',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(130,252,244,0.0)',
+            }
+        }
+        map.createPane('pane_LimitiComunali_0');
+        map.getPane('pane_LimitiComunali_0').style.zIndex = 400;
+        map.getPane('pane_LimitiComunali_0').style['mix-blend-mode'] = 'normal';
+        var layer_LimitiComunali_0 = new L.geoJson(json_LimitiComunali_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_LimitiComunali_0',
+            onEachFeature: pop_LimitiComunali_0,
+            style: style_LimitiComunali_0_0,
+        });
+        bounds_group.addLayer(layer_LimitiComunali_0);
+        map.addLayer(layer_LimitiComunali_0);
+        function pop_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+						<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Incidenza di giovani fuori dal mercato del lavoro e della formazione (%)</strong><br />' + (feature.properties['IGFMLF'] !== null ? Autolinker.link(String(feature.properties['IGFMLF'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_0(feature) {
+            if (feature.properties['IGFMLF'] >= 0.000000 && feature.properties['IGFMLF'] <= 5.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,249,232,0.8)',
+            }
+            }
+            if (feature.properties['IGFMLF'] >= 5.000000 && feature.properties['IGFMLF'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,228,188,0.8)',
+            }
+            }
+            if (feature.properties['IGFMLF'] >= 10.000000 && feature.properties['IGFMLF'] <= 15.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,204,196,0.8)',
+            }
+            }
+            if (feature.properties['IGFMLF'] >= 15.000000 && feature.properties['IGFMLF'] <= 20.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(67,162,202,0.8)',
+            }
+            }
+            if (feature.properties['IGFMLF'] >= 20.000000 && feature.properties['IGFMLF'] <= 22.500000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,104,172,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1');
+        map.getPane('pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1').style.zIndex = 401;
+        map.getPane('pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1').style['mix-blend-mode'] = 'normal';
+        var layer_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1 = new L.geoJson(json_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1',
+            onEachFeature: pop_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1,
+            style: style_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_0,
+        });
+        bounds_group.addLayer(layer_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1);
+        function pop_Incidenzadigiovani1529annichenonstudianoenonlavorano_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Incidenza di giovani 15-29 anni che non studiano e non lavorano (%)</strong><br />' + (feature.properties['GNSNL'] !== null ? Autolinker.link(String(feature.properties['GNSNL'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Incidenzadigiovani1529annichenonstudianoenonlavorano_2_0(feature) {
+            if (feature.properties['GNSNL'] >= 0.000000 && feature.properties['GNSNL'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,0,0.8)',
+            }
+            }
+            if (feature.properties['GNSNL'] >= 10.000000 && feature.properties['GNSNL'] <= 20.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(170,255,0,0.8)',
+            }
+            }
+            if (feature.properties['GNSNL'] >= 20.000000 && feature.properties['GNSNL'] <= 30.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,170,0,0.8)',
+            }
+            }
+            if (feature.properties['GNSNL'] >= 30.000000 && feature.properties['GNSNL'] <= 40.000000 ) {
+                return {
+                pane: 'pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,0,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2');
+        map.getPane('pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2').style.zIndex = 402;
+        map.getPane('pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2').style['mix-blend-mode'] = 'normal';
+        var layer_Incidenzadigiovani1529annichenonstudianoenonlavorano_2 = new L.geoJson(json_Incidenzadigiovani1529annichenonstudianoenonlavorano_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Incidenzadigiovani1529annichenonstudianoenonlavorano_2',
+            onEachFeature: pop_Incidenzadigiovani1529annichenonstudianoenonlavorano_2,
+            style: style_Incidenzadigiovani1529annichenonstudianoenonlavorano_2_0,
+        });
+        bounds_group.addLayer(layer_Incidenzadigiovani1529annichenonstudianoenonlavorano_2);
+        function pop_Incidenzagiovaniconistruzioneuniversitaria_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Incidenza giovani con istruzione universitaria (%)</strong><br />' + (feature.properties['IGIU'] !== null ? Autolinker.link(String(feature.properties['IGIU'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Incidenzagiovaniconistruzioneuniversitaria_3_0(feature) {
+            if (feature.properties['IGIU'] >= 0.000000 && feature.properties['IGIU'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Incidenzagiovaniconistruzioneuniversitaria_3',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(241,238,246,0.8)',
+            }
+            }
+            if (feature.properties['IGIU'] >= 10.000000 && feature.properties['IGIU'] <= 20.000000 ) {
+                return {
+                pane: 'pane_Incidenzagiovaniconistruzioneuniversitaria_3',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,193,222,0.8)',
+            }
+            }
+            if (feature.properties['IGIU'] >= 20.000000 && feature.properties['IGIU'] <= 30.000000 ) {
+                return {
+                pane: 'pane_Incidenzagiovaniconistruzioneuniversitaria_3',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,133,192,0.8)',
+            }
+            }
+            if (feature.properties['IGIU'] >= 30.000000 && feature.properties['IGIU'] <= 40.000000 ) {
+                return {
+                pane: 'pane_Incidenzagiovaniconistruzioneuniversitaria_3',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(223,72,153,0.8)',
+            }
+            }
+            if (feature.properties['IGIU'] >= 40.000000 && feature.properties['IGIU'] <= 50.000000 ) {
+                return {
+                pane: 'pane_Incidenzagiovaniconistruzioneuniversitaria_3',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(208,22,109,0.8)',
+            }
+            }
+            if (feature.properties['IGIU'] >= 50.000000 && feature.properties['IGIU'] <= 100.000000 ) {
+                return {
+                pane: 'pane_Incidenzagiovaniconistruzioneuniversitaria_3',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,0,67,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Incidenzagiovaniconistruzioneuniversitaria_3');
+        map.getPane('pane_Incidenzagiovaniconistruzioneuniversitaria_3').style.zIndex = 403;
+        map.getPane('pane_Incidenzagiovaniconistruzioneuniversitaria_3').style['mix-blend-mode'] = 'normal';
+        var layer_Incidenzagiovaniconistruzioneuniversitaria_3 = new L.geoJson(json_Incidenzagiovaniconistruzioneuniversitaria_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Incidenzagiovaniconistruzioneuniversitaria_3',
+            onEachFeature: pop_Incidenzagiovaniconistruzioneuniversitaria_3,
+            style: style_Incidenzagiovaniconistruzioneuniversitaria_3_0,
+        });
+        bounds_group.addLayer(layer_Incidenzagiovaniconistruzioneuniversitaria_3);
+        function pop_Uscitaprecocedalsistemadiistruzioneeformazione_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Uscita precoce dal sistema di istruzione e formazione (%)</strong><br />' + (feature.properties['UPSIF'] !== null ? Autolinker.link(String(feature.properties['UPSIF'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Uscitaprecocedalsistemadiistruzioneeformazione_4_0(feature) {
+            if (feature.properties['UPSIF'] >= 0.000000 && feature.properties['UPSIF'] <= 5.000000 ) {
+                return {
+                pane: 'pane_Uscitaprecocedalsistemadiistruzioneeformazione_4',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,108,115,0.8)',
+            }
+            }
+            if (feature.properties['UPSIF'] >= 5.000000 && feature.properties['UPSIF'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Uscitaprecocedalsistemadiistruzioneeformazione_4',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(90,152,155,0.8)',
+            }
+            }
+            if (feature.properties['UPSIF'] >= 10.000000 && feature.properties['UPSIF'] <= 15.000000 ) {
+                return {
+                pane: 'pane_Uscitaprecocedalsistemadiistruzioneeformazione_4',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,215,183,0.8)',
+            }
+            }
+            if (feature.properties['UPSIF'] >= 15.000000 && feature.properties['UPSIF'] <= 20.000000 ) {
+                return {
+                pane: 'pane_Uscitaprecocedalsistemadiistruzioneeformazione_4',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,87,87,0.8)',
+            }
+            }
+            if (feature.properties['UPSIF'] >= 20.000000 && feature.properties['UPSIF'] <= 30.000000 ) {
+                return {
+                pane: 'pane_Uscitaprecocedalsistemadiistruzioneeformazione_4',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,34,34,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Uscitaprecocedalsistemadiistruzioneeformazione_4');
+        map.getPane('pane_Uscitaprecocedalsistemadiistruzioneeformazione_4').style.zIndex = 404;
+        map.getPane('pane_Uscitaprecocedalsistemadiistruzioneeformazione_4').style['mix-blend-mode'] = 'normal';
+        var layer_Uscitaprecocedalsistemadiistruzioneeformazione_4 = new L.geoJson(json_Uscitaprecocedalsistemadiistruzioneeformazione_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Uscitaprecocedalsistemadiistruzioneeformazione_4',
+            onEachFeature: pop_Uscitaprecocedalsistemadiistruzioneeformazione_4,
+            style: style_Uscitaprecocedalsistemadiistruzioneeformazione_4_0,
+        });
+        bounds_group.addLayer(layer_Uscitaprecocedalsistemadiistruzioneeformazione_4);
+        function pop_Incidenzadifamiglieinpotenzialedisagioeconomico_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Incidenza di famiglie in potenziale disagio economico (%)</strong><br />' + (feature.properties['FPDE'] !== null ? Autolinker.link(String(feature.properties['FPDE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Incidenzadifamiglieinpotenzialedisagioeconomico_5_0(feature) {
+            if (feature.properties['FPDE'] >= 0.000000 && feature.properties['FPDE'] <= 1.000000 ) {
+                return {
+                pane: 'pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(5,113,176,0.8)',
+            }
+            }
+            if (feature.properties['FPDE'] >= 1.000000 && feature.properties['FPDE'] <= 2.000000 ) {
+                return {
+                pane: 'pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(146,197,222,0.8)',
+            }
+            }
+            if (feature.properties['FPDE'] >= 2.000000 && feature.properties['FPDE'] <= 3.000000 ) {
+                return {
+                pane: 'pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(244,165,130,0.8)',
+            }
+            }
+            if (feature.properties['FPDE'] >= 3.000000 && feature.properties['FPDE'] <= 4.000000 ) {
+                return {
+                pane: 'pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,0,32,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5');
+        map.getPane('pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5').style.zIndex = 405;
+        map.getPane('pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5').style['mix-blend-mode'] = 'normal';
+        var layer_Incidenzadifamiglieinpotenzialedisagioeconomico_5 = new L.geoJson(json_Incidenzadifamiglieinpotenzialedisagioeconomico_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Incidenzadifamiglieinpotenzialedisagioeconomico_5',
+            onEachFeature: pop_Incidenzadifamiglieinpotenzialedisagioeconomico_5,
+            style: style_Incidenzadifamiglieinpotenzialedisagioeconomico_5_0,
+        });
+        bounds_group.addLayer(layer_Incidenzadifamiglieinpotenzialedisagioeconomico_5);
+        function pop_Partecipazionealmercatodellavoro_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provinica</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Partecipazione al mercato del lavoro (%)</strong><br />' + (feature.properties['PML'] !== null ? Autolinker.link(String(feature.properties['PML'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Partecipazionealmercatodellavoro_6_0(feature) {
+            if (feature.properties['PML'] >= 30.000000 && feature.properties['PML'] <= 35.000000 ) {
+                return {
+                pane: 'pane_Partecipazionealmercatodellavoro_6',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,0.8)',
+            }
+            }
+            if (feature.properties['PML'] >= 35.000000 && feature.properties['PML'] <= 40.000000 ) {
+                return {
+                pane: 'pane_Partecipazionealmercatodellavoro_6',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,221,240,0.8)',
+            }
+            }
+            if (feature.properties['PML'] >= 40.000000 && feature.properties['PML'] <= 45.000000 ) {
+                return {
+                pane: 'pane_Partecipazionealmercatodellavoro_6',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,179,216,0.8)',
+            }
+            }
+            if (feature.properties['PML'] >= 45.000000 && feature.properties['PML'] <= 50.000000 ) {
+                return {
+                pane: 'pane_Partecipazionealmercatodellavoro_6',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(40,121,185,0.8)',
+            }
+            }
+            if (feature.properties['PML'] >= 50.000000 && feature.properties['PML'] <= 55.000000 ) {
+                return {
+                pane: 'pane_Partecipazionealmercatodellavoro_6',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Partecipazionealmercatodellavoro_6');
+        map.getPane('pane_Partecipazionealmercatodellavoro_6').style.zIndex = 406;
+        map.getPane('pane_Partecipazionealmercatodellavoro_6').style['mix-blend-mode'] = 'normal';
+        var layer_Partecipazionealmercatodellavoro_6 = new L.geoJson(json_Partecipazionealmercatodellavoro_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Partecipazionealmercatodellavoro_6',
+            onEachFeature: pop_Partecipazionealmercatodellavoro_6,
+            style: style_Partecipazionealmercatodellavoro_6_0,
+        });
+        bounds_group.addLayer(layer_Partecipazionealmercatodellavoro_6);
+        function pop_Indicedivecchiaia_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Indice di vecchiaia (%)</strong><br />' + (feature.properties['IV'] !== null ? Autolinker.link(String(feature.properties['IV'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Indicedivecchiaia_7_0(feature) {
+            if (feature.properties['IV'] >= 100.000000 && feature.properties['IV'] <= 200.000000 ) {
+                return {
+                pane: 'pane_Indicedivecchiaia_7',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,249,50,0.8)',
+            }
+            }
+            if (feature.properties['IV'] >= 200.000000 && feature.properties['IV'] <= 300.000000 ) {
+                return {
+                pane: 'pane_Indicedivecchiaia_7',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,198,40,0.8)',
+            }
+            }
+            if (feature.properties['IV'] >= 300.000000 && feature.properties['IV'] <= 400.000000 ) {
+                return {
+                pane: 'pane_Indicedivecchiaia_7',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,146,30,0.8)',
+            }
+            }
+            if (feature.properties['IV'] >= 400.000000 && feature.properties['IV'] <= 500.000000 ) {
+                return {
+                pane: 'pane_Indicedivecchiaia_7',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,94,20,0.8)',
+            }
+            }
+            if (feature.properties['IV'] >= 500.000000 && feature.properties['IV'] <= 1100.000000 ) {
+                return {
+                pane: 'pane_Indicedivecchiaia_7',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,43,11,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Indicedivecchiaia_7');
+        map.getPane('pane_Indicedivecchiaia_7').style.zIndex = 407;
+        map.getPane('pane_Indicedivecchiaia_7').style['mix-blend-mode'] = 'normal';
+        var layer_Indicedivecchiaia_7 = new L.geoJson(json_Indicedivecchiaia_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Indicedivecchiaia_7',
+            onEachFeature: pop_Indicedivecchiaia_7,
+            style: style_Indicedivecchiaia_7_0,
+        });
+        bounds_group.addLayer(layer_Indicedivecchiaia_7);
+        function pop_Indicedivulnerabilitsocialeemateriale_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Indice di vulnerabilità sociale e materiale</strong><br />' + (feature.properties['Indice di vulnerabilità sociale e materiale'] !== null ? Autolinker.link(String(feature.properties['Indice di vulnerabilità sociale e materiale'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Indicedivulnerabilitsocialeemateriale_8_0(feature) {
+            if (feature.properties['Indice di vulnerabilità sociale e materiale'] >= 0.000000 && feature.properties['Indice di vulnerabilità sociale e materiale'] <= 2.000000 ) {
+                return {
+                pane: 'pane_Indicedivulnerabilitsocialeemateriale_8',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,108,115,0.8)',
+            }
+            }
+            if (feature.properties['Indice di vulnerabilità sociale e materiale'] >= 2.000000 && feature.properties['Indice di vulnerabilità sociale e materiale'] <= 4.000000 ) {
+                return {
+                pane: 'pane_Indicedivulnerabilitsocialeemateriale_8',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(90,152,155,0.8)',
+            }
+            }
+            if (feature.properties['Indice di vulnerabilità sociale e materiale'] >= 4.000000 && feature.properties['Indice di vulnerabilità sociale e materiale'] <= 6.000000 ) {
+                return {
+                pane: 'pane_Indicedivulnerabilitsocialeemateriale_8',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,215,183,0.8)',
+            }
+            }
+            if (feature.properties['Indice di vulnerabilità sociale e materiale'] >= 6.000000 && feature.properties['Indice di vulnerabilità sociale e materiale'] <= 8.000000 ) {
+                return {
+                pane: 'pane_Indicedivulnerabilitsocialeemateriale_8',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,87,87,0.8)',
+            }
+            }
+            if (feature.properties['Indice di vulnerabilità sociale e materiale'] >= 8.000000 && feature.properties['Indice di vulnerabilità sociale e materiale'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Indicedivulnerabilitsocialeemateriale_8',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,34,34,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Indicedivulnerabilitsocialeemateriale_8');
+        map.getPane('pane_Indicedivulnerabilitsocialeemateriale_8').style.zIndex = 408;
+        map.getPane('pane_Indicedivulnerabilitsocialeemateriale_8').style['mix-blend-mode'] = 'normal';
+        var layer_Indicedivulnerabilitsocialeemateriale_8 = new L.geoJson(json_Indicedivulnerabilitsocialeemateriale_8, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Indicedivulnerabilitsocialeemateriale_8',
+            onEachFeature: pop_Indicedivulnerabilitsocialeemateriale_8,
+            style: style_Indicedivulnerabilitsocialeemateriale_8_0,
+        });
+        bounds_group.addLayer(layer_Indicedivulnerabilitsocialeemateriale_8);
+        function pop_Tassodidisoccupazionegiovanile_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tasso di disoccupazione giovanile (%)</strong><br />' + (feature.properties['DISSG'] !== null ? Autolinker.link(String(feature.properties['DISSG'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Tassodidisoccupazionegiovanile_9_0(feature) {
+            if (feature.properties['DISSG'] >= 0.000000 && feature.properties['DISSG'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,249,50,0.8)',
+            }
+            }
+            if (feature.properties['DISSG'] >= 10.000000 && feature.properties['DISSG'] <= 20.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,220,44,0.8)',
+            }
+            }
+            if (feature.properties['DISSG'] >= 20.000000 && feature.properties['DISSG'] <= 30.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,190,39,0.8)',
+            }
+            }
+            if (feature.properties['DISSG'] >= 30.000000 && feature.properties['DISSG'] <= 40.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,161,33,0.8)',
+            }
+            }
+            if (feature.properties['DISSG'] >= 40.000000 && feature.properties['DISSG'] <= 50.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,131,27,0.8)',
+            }
+            }
+            if (feature.properties['DISSG'] >= 50.000000 && feature.properties['DISSG'] <= 60.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,102,22,0.8)',
+            }
+            }
+            if (feature.properties['DISSG'] >= 60.000000 && feature.properties['DISSG'] <= 70.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,72,16,0.8)',
+            }
+            }
+            if (feature.properties['DISSG'] >= 70.000000 && feature.properties['DISSG'] <= 80.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazionegiovanile_9',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,43,11,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Tassodidisoccupazionegiovanile_9');
+        map.getPane('pane_Tassodidisoccupazionegiovanile_9').style.zIndex = 409;
+        map.getPane('pane_Tassodidisoccupazionegiovanile_9').style['mix-blend-mode'] = 'normal';
+        var layer_Tassodidisoccupazionegiovanile_9 = new L.geoJson(json_Tassodidisoccupazionegiovanile_9, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Tassodidisoccupazionegiovanile_9',
+            onEachFeature: pop_Tassodidisoccupazionegiovanile_9,
+            style: style_Tassodidisoccupazionegiovanile_9_0,
+        });
+        bounds_group.addLayer(layer_Tassodidisoccupazionegiovanile_9);
+        function pop_Tassodidisoccupazione_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tasso di disoccupazione giovanile (%)</strong><br />' + (feature.properties['DISS'] !== null ? Autolinker.link(String(feature.properties['DISS'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Tassodidisoccupazione_10_0(feature) {
+            if (feature.properties['DISS'] >= 0.000000 && feature.properties['DISS'] <= 5.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazione_10',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,204,0.8)',
+            }
+            }
+            if (feature.properties['DISS'] >= 5.000000 && feature.properties['DISS'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazione_10',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(161,218,180,0.8)',
+            }
+            }
+            if (feature.properties['DISS'] >= 10.000000 && feature.properties['DISS'] <= 15.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazione_10',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(65,182,196,0.8)',
+            }
+            }
+            if (feature.properties['DISS'] >= 15.000000 && feature.properties['DISS'] <= 20.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazione_10',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(44,127,184,0.8)',
+            }
+            }
+            if (feature.properties['DISS'] >= 20.000000 && feature.properties['DISS'] <= 25.000000 ) {
+                return {
+                pane: 'pane_Tassodidisoccupazione_10',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(37,52,148,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Tassodidisoccupazione_10');
+        map.getPane('pane_Tassodidisoccupazione_10').style.zIndex = 410;
+        map.getPane('pane_Tassodidisoccupazione_10').style['mix-blend-mode'] = 'normal';
+        var layer_Tassodidisoccupazione_10 = new L.geoJson(json_Tassodidisoccupazione_10, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Tassodidisoccupazione_10',
+            onEachFeature: pop_Tassodidisoccupazione_10,
+            style: style_Tassodidisoccupazione_10_0,
+        });
+        bounds_group.addLayer(layer_Tassodidisoccupazione_10);
+        function pop_Popolazioneedinamichedemografiche_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        \
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Comune</strong><br />' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Provincia</strong><br />' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Superficie (kmq)</strong><br />' + (feature.properties['Superficie (kmq)'] !== null ? Autolinker.link(String(feature.properties['Superficie (kmq)'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Popolazione 1971</strong><br />' + (feature.properties['Popolazione 1971'] !== null ? Autolinker.link(String(feature.properties['Popolazione 1971'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Popolazione 1981</strong><br />' + (feature.properties['Popolazione 1981'] !== null ? Autolinker.link(String(feature.properties['Popolazione 1981'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Popolazione 1991</strong><br />' + (feature.properties['Popolazione 1991'] !== null ? Autolinker.link(String(feature.properties['Popolazione 1991'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Popolazione 2001</strong><br />' + (feature.properties['Popolazione 2001'] !== null ? Autolinker.link(String(feature.properties['Popolazione 2001'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Popolazione 2011</strong><br />' + (feature.properties['Popolazione 2011'] !== null ? Autolinker.link(String(feature.properties['Popolazione 2011'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Popolazione 2017</strong><br />' + (feature.properties['Popolazione 2017'] !== null ? Autolinker.link(String(feature.properties['Popolazione 2017'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2"><hr style="border: 1px dashed orange;" /></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Trend demografico 1971-2017 (n°abitanti)</strong><br />' + (feature.properties['Trend demografico 1971-2017 (n°abitanti)'] !== null ? Autolinker.link(String(feature.properties['Trend demografico 1971-2017 (n°abitanti)'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Trend demografico 1971-2017 (%)</strong><br />' + (feature.properties['Trend demografico 1971-2017 (percentuale)'] !== null ? Autolinker.link(String(feature.properties['Trend demografico 1971-2017 (percentuale)'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Scompare nel...</strong><br />' + (feature.properties['Scompare nel...'] !== null ? Autolinker.link(String(feature.properties['Scompare nel...'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Popolazioneedinamichedemografiche_11_0(feature) {
+            if (feature.properties['Trend demografico 1971-2017 (percentuale)'] >= -70.000000 && feature.properties['Trend demografico 1971-2017 (percentuale)'] <= -40.000000 ) {
+                return {
+                pane: 'pane_Popolazioneedinamichedemografiche_11',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,7,36,0.8)',
+            }
+            }
+            if (feature.properties['Trend demografico 1971-2017 (percentuale)'] >= -40.000000 && feature.properties['Trend demografico 1971-2017 (percentuale)'] <= -20.000000 ) {
+                return {
+                pane: 'pane_Popolazioneedinamichedemografiche_11',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,118,102,0.8)',
+            }
+            }
+            if (feature.properties['Trend demografico 1971-2017 (percentuale)'] >= -20.000000 && feature.properties['Trend demografico 1971-2017 (percentuale)'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Popolazioneedinamichedemografiche_11',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(245,191,166,0.8)',
+            }
+            }
+            if (feature.properties['Trend demografico 1971-2017 (percentuale)'] >= 0.000000 && feature.properties['Trend demografico 1971-2017 (percentuale)'] <= 20.000000 ) {
+                return {
+                pane: 'pane_Popolazioneedinamichedemografiche_11',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(217,232,239,0.8)',
+            }
+            }
+            if (feature.properties['Trend demografico 1971-2017 (percentuale)'] >= 20.000000 && feature.properties['Trend demografico 1971-2017 (percentuale)'] <= 40.000000 ) {
+                return {
+                pane: 'pane_Popolazioneedinamichedemografiche_11',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(121,182,214,0.8)',
+            }
+            }
+        }
+        map.createPane('pane_Popolazioneedinamichedemografiche_11');
+        map.getPane('pane_Popolazioneedinamichedemografiche_11').style.zIndex = 411;
+        map.getPane('pane_Popolazioneedinamichedemografiche_11').style['mix-blend-mode'] = 'normal';
+        var layer_Popolazioneedinamichedemografiche_11 = new L.geoJson(json_Popolazioneedinamichedemografiche_11, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Popolazioneedinamichedemografiche_11',
+            onEachFeature: pop_Popolazioneedinamichedemografiche_11,
+            style: style_Popolazioneedinamichedemografiche_11_0,
+        });
+        bounds_group.addLayer(layer_Popolazioneedinamichedemografiche_11);
+
+		
+var baseMaps = {};
+var mylegend = L.control.layers(baseMaps,{'<b>Popolazione e dinamiche demografiche</b><br /><table><tr><td style="text-align: center;"><img src="legend/Popolazioneedinamichedemografiche_11_70400.png" /></td><td>-70 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Popolazioneedinamichedemografiche_11_40201.png" /></td><td>-40 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Popolazioneedinamichedemografiche_11_2002.png" /></td><td>-20 - 0</td></tr><tr><td style="text-align: center;"><img src="legend/Popolazioneedinamichedemografiche_11_0203.png" /></td><td>0 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Popolazioneedinamichedemografiche_11_20404.png" /></td><td>20 - 40</td></tr></table>': layer_Popolazioneedinamichedemografiche_11,'<b>Tasso di disoccupazione (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_050.png" /></td><td>0 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_5101.png" /></td><td>5 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_10152.png" /></td><td>10 - 15</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_15203.png" /></td><td>15 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazione_10_20254.png" /></td><td>20 - 25</td></tr></table>': layer_Tassodidisoccupazione_10,'<b>Tasso di disoccupazione giovanile (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_0100.png" /></td><td>0 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_10201.png" /></td><td>10 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_20302.png" /></td><td>20 - 30</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_30403.png" /></td><td>30 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_40504.png" /></td><td>40 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_50605.png" /></td><td>50 - 60</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_60706.png" /></td><td>60 - 70</td></tr><tr><td style="text-align: center;"><img src="legend/Tassodidisoccupazionegiovanile_9_70807.png" /></td><td>70 - 80</td></tr></table>': layer_Tassodidisoccupazionegiovanile_9,'<b>Indice di vulnerabilità sociale e materiale (1-10)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_020.png" /></td><td>0 - 2</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_241.png" /></td><td>2 - 4</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_462.png" /></td><td>4 - 6</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_683.png" /></td><td>6 - 8</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivulnerabilitsocialeemateriale_8_8104.png" /></td><td>8 - 10</td></tr></table>': layer_Indicedivulnerabilitsocialeemateriale_8,'<b>Indice di vecchiaia (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_1002000.png" /></td><td>100 - 200</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_2003001.png" /></td><td>200 - 300</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_3004002.png" /></td><td>300 - 400</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_4005003.png" /></td><td>400 - 500</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedivecchiaia_7_5004.png" /></td><td>>500</td></tr></table>': layer_Indicedivecchiaia_7,'<b>Partecipazione al mercato del lavoro (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_30350.png" /></td><td>30 - 35</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_35401.png" /></td><td>35 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_40452.png" /></td><td>40 - 45</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_45503.png" /></td><td>45 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Partecipazionealmercatodellavoro_6_504.png" /></td><td>>50</td></tr></table>': layer_Partecipazionealmercatodellavoro_6,'<b>Incidenza di famiglie in potenziale disagio economico (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_00100.png" /></td><td> 0.0 - 1.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_10201.png" /></td><td> 1.0 - 2.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_20302.png" /></td><td> 2.0 - 3.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadifamiglieinpotenzialedisagioeconomico_5_30403.png" /></td><td> 3.0 - 4.0 </td></tr></table>': layer_Incidenzadifamiglieinpotenzialedisagioeconomico_5,'<b>Uscita precoce dal sistema di istruzione e formazione (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_050.png" /></td><td>0 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_5101.png" /></td><td>5 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_10152.png" /></td><td>10 - 15</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_15203.png" /></td><td>15 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Uscitaprecocedalsistemadiistruzioneeformazione_4_20304.png" /></td><td>20 - 30</td></tr></table>': layer_Uscitaprecocedalsistemadiistruzioneeformazione_4,'<b>Incidenza giovani con istruzione universitaria (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_0100.png" /></td><td>0 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_10201.png" /></td><td>10 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_20302.png" /></td><td>20 - 30</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_30403.png" /></td><td>30 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_40504.png" /></td><td>40 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzagiovaniconistruzioneuniversitaria_3_505.png" /></td><td>>50</td></tr></table>': layer_Incidenzagiovaniconistruzioneuniversitaria_3,'<b>Incidenza di giovani 15-29 anni che non studiano e non lavorano (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_0100.png" /></td><td>0 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_10201.png" /></td><td>10 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_20302.png" /></td><td>20 - 30</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovani1529annichenonstudianoenonlavorano_2_30403.png" /></td><td>30 - 40</td></tr></table>': layer_Incidenzadigiovani1529annichenonstudianoenonlavorano_2,'<b>Incidenza di giovani fuori dal mercato del lavoro e della formazione (%)</b><br /><table><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_050.png" /></td><td> 0 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_5101.png" /></td><td> 5 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_10152.png" /></td><td> 10 - 15 </td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_15203.png" /></td><td> 15 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1_20254.png" /></td><td>20 - 25</td></tr></table>': layer_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1,'<img src="legend/LimitiComunali_0.png" /> <b>Limiti Comunali</b>': layer_LimitiComunali_0,},{collapsed:false}).addTo(map);
+        //setBounds();
+        var i = 0;
+        layer_Popolazioneedinamichedemografiche_11.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Scompare nel...'] !== null?String('<div style="color: #ffffff; font-size: 10pt; font-weight: bold; font-family: \'Arial Black\', sans-serif;">' + layer.feature.properties['Scompare nel...']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Popolazioneedinamichedemografiche_11'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+		
+		//evento che permette di aprire il div al click
+		//$("div").on("click", '.sidebar-open-button', function () {
+		//var ID = $(this).attr("data");
+		//openSidebar(ID);
+		//});
+		
+var search = new L.Control.Search({
+        layer: layer_LimitiComunali_0,
+        initial: false,
+		position: 'topright',
+        hideMarkerOnCollapse: true,
+        propertyName: 'COMUNE'}).addTo(map);
+        resetLabels([layer_Popolazioneedinamichedemografiche_11]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Popolazioneedinamichedemografiche_11]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Popolazioneedinamichedemografiche_11]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Popolazioneedinamichedemografiche_11]);
+        });
+		
+		var zoomControl = L.control.zoom({position: 'topright'}).addTo(map);
+		var sidebar = L.control.sidebar('sidebar').addTo(map);
+		
+		var htmlObject = mylegend.getContainer();
+		var a = document.getElementById('mylegend')
+		function setParent(el, newParent){
+		newParent.appendChild(el);
+		}
+		setParent(htmlObject, a);
+		
+		var htmlObject = search.getContainer();
+		var a = document.getElementById('search')
+		function setParent(el, newParent){
+		newParent.appendChild(el);
+		}
+		setParent(htmlObject, a);
+		
+		// aggiungere opzioni per mostrare mappe //
+		window.Popolazioneedinamichedemografiche = layer_Popolazioneedinamichedemografiche_11;
+		window.Tassodidisoccupazione = layer_Tassodidisoccupazione_10;
+		window.Tassodidisoccupazionegiovanile = layer_Tassodidisoccupazionegiovanile_9;
+		window.Indicedivulnerabilitsocialeemateriale = layer_Indicedivulnerabilitsocialeemateriale_8;
+		window.Indicedivecchiaia = layer_Indicedivecchiaia_7;
+		window.Partecipazionealmercatodellavoro = layer_Partecipazionealmercatodellavoro_6;
+		window.Incidenzadifamiglieinpotenzialedisagioeconomico = layer_Incidenzadifamiglieinpotenzialedisagioeconomico_5;
+		window.Uscitaprecocedalsistemadiistruzioneeformazione = layer_Uscitaprecocedalsistemadiistruzioneeformazione_4;
+		window.Incidenzagiovaniconistruzioneuniversitaria = layer_Incidenzagiovaniconistruzioneuniversitaria_3;
+		window.Incidenzadigiovani1529annichenonstudianoenonlavorano = layer_Incidenzadigiovani1529annichenonstudianoenonlavorano_2;
+		window.Incidenzadigiovanifuoridalmercatodellavoroedellaformazione = layer_Incidenzadigiovanifuoridalmercatodellavoroedellaformazione_1;
+		
+		
+		$("input").click(function(event){
+		layerClicked = window[event.target.value];
+		if (map.hasLayer(layerClicked)) {
+        map.removeLayer(layerClicked);
+		} else {
+        map.addLayer(layerClicked);
+		}
+		});
+		
+        </script>
+		
+  </body>
+</html>

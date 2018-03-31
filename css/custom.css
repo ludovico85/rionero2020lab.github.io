@@ -1,0 +1,130 @@
+.btn-info:hover{
+	color:#000000;
+	background-color:#f1715c;
+	border-color:#f1715c}	
+.btn-info {
+    color: #000000;
+    background-color: #FEDA60;
+	border-color: #FEDA60;
+	white-space: normal;
+    }
+	
+.btn-info:active{
+    color: #fff;
+    background-color: #f1715c;
+    border-color: #f1715c;
+}
+
+.btn-info:focus{
+    color: #fff;
+    background-color: #f1715c;
+    border-color: #f1715c;
+}
+
+.btn-info:visited{
+    color: #fff;
+    background-color: #FEDA60;
+    border-color: #FEDA60;
+}
+
+.btn-info:focus-within{
+    color: #fff;
+    background-color: #f1715c;
+    border-color: #f1715c;
+}
+
+.btn-info:active:focus, .btn-info:active:hover, .open>.dropdown-toggle.btn-info.focus, .open>.dropdown-toggle.btn-info:focus, .open>.dropdown-toggle.btn-info:hover {
+    color: #fff;
+    background-color: #f1715c;
+    border-color: #f1715c;
+}
+
+#demo{
+margin-right: 10px;	
+}
+#demo1{
+margin-right: 10px;	
+}
+#demo2{
+margin-right: 10px;	
+}
+#demo3{
+margin-right: 10px;	
+}
+#demo4{
+margin-right: 10px;	
+}
+#demo5{
+margin-right: 10px;	
+}
+#demo6{
+margin-right: 10px;	
+}
+#demo7{
+margin-right: 10px;	
+}
+#demo8{
+margin-right: 10px;	
+}
+#demo9{
+margin-right: 10px;	
+}
+#demo10{
+margin-right: 10px;	
+}
+#demo11{
+margin-right: 10px;	
+}
+
+#demo12{
+margin-right: 10px;	
+}
+
+#demo13{
+margin-right: 10px;	
+}
+
+#demo14{
+margin-right: 10px;	
+}
+
+.tooltip1 {
+	position: absolute;
+	display: inline;
+	border-bottom: 2px dotted orange;
+	position: relative;
+}
+
+.tooltip1 .tooltip1text {
+    visibility: hidden;
+    /*width: 120px;*/
+    color: #000000;
+    background-color: #FEDA60;
+	bottom: 100%;
+	left: 50%;
+	/*margin-left: -60px;*/
+    text-align: center;
+	font-size: 10px;
+    border-radius: 6px;
+    padding: 5px 0;
+    /*Position the tooltip*/
+    position: absolute;
+    z-index: 100000;
+	white-space: normal;
+}
+
+.tooltip1:hover .tooltip1text {
+    visibility: visible;
+}
+
+#logo {
+position: absolute;
+z-index: 9999;	
+bottom: 20px;
+right: 10px;
+}
+
+
+
+
+
