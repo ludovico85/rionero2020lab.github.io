@@ -123,8 +123,10 @@ z-index: 9999;
 bottom: 20px;
 right: 10px;
 }
-
-
-
-
+.modal-content {
+background-color: #435965;
+color: white;
+text-align: justify;
+	
+}
 

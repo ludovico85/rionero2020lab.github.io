@@ -26,10 +26,33 @@
 		</title>
     </head>
     <body>
-	<div id="logo">
-	<img src="images/logo.jpg" width="75" height="75">
+	<!-- Modal box -->
+	<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="text-align: center">WebGIS <span style="color: #7BC5B8">RIONERO</span><span style="color: #948077">2</span><span style="color: #FFD960">0</span><span style="color: #948077">2</span><span style="color: #FFD960">0</span></h4>
+      </div>
+      <div class="modal-body">
+        <p> Il portale WebGIS del Progetto di sviluppo locale Rionero2020 promosso dall'amministrazione comunale di Rionero Sannitico (IS). Per esplorare le funzioni del WebGIS utilizza la barra di navigazione a sinistra dello schermo dove potrai leggere le informazioni relative al progetto di sviluppo locale, esplorare i tematismi cartografici prodotti, interrogarli, cercare statistiche relative al tuo comune, inviare e-mail e contattare i progettisti.</p>
+		<br>
+		<p style="text-align: center; color: #FFD960"> <b>Buona navigazione</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+	</div>
 	</div>
 	
+	<div id="logo">
+	<img src="images/logo.jpg" width="75" height="75">
+	<!-- Modal box launch -->
+	</div>
+	
+
 	<div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
@@ -318,6 +341,7 @@
         <script src="js/leaflet.js"></script>
 		<script src="js/leaflet-sidebar.js"></script> <!--script sidebar-->
 		<!--<script src="js/jquery-sidebar.js"></script> <!-- call to jquery -->
+		<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> <!-- call to jquery -->
 		<script type="text/javascript" src="js/leaflet.ajax.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -352,9 +376,12 @@
 		map.attributionControl.addAttribution('<a href="https://fontawesome.com/" target="_blank">Font Awesome</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>');
 		map.attributionControl.addAttribution('<a href="https://github.com/Turbo87/leaflet-sidebar" target="_blank">Leaflet-sidebar, MIT License</a>');
 		map.attributionControl.addAttribution('<a href=http://labs.easyblog.it/" target="_blank">Leaflet.Control.Search, MIT License</a>');
-
 		
 		
+		// launch modal box
+		$(window).on("load",function(){        
+		$('#myModal').modal('show');
+		}); 
 		
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
