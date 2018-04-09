@@ -120,9 +120,23 @@ margin-right: 10px;
 #logo {
 position: absolute;
 z-index: 9999;	
-top: 20px;
-right: 10px;
+bottom: 20px;
+right: 20px;
 }
+
+.circle { 
+   width: 120px;
+   height: 120px;
+   background: rgba(255,255,255,0.6); 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 70px;
+   bottom: 20px;
+right: 10px;
+z-index: 9998;
+position: absolute;
+}
+
 
 .modal-content {
 background-color: #435965;
